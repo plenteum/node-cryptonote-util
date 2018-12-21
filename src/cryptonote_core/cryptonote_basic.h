@@ -355,7 +355,7 @@ namespace cryptonote
   /*                                                                      */
   /************************************************************************/
 
-  const uint8_t CURRENT_BYTECOIN_BLOCK_MAJOR_VERSION = 4;
+  const uint8_t CURRENT_BYTECOIN_BLOCK_MAJOR_VERSION = 1;
 
   struct bytecoin_block
   {
