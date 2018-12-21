@@ -355,7 +355,7 @@ namespace cryptonote
   /*                                                                      */
   /************************************************************************/
 
-  const uint8_t CURRENT_BYTECOIN_BLOCK_MAJOR_VERSION = 5;
+  const uint8_t CURRENT_BYTECOIN_BLOCK_MAJOR_VERSION = 1;
 
   struct bytecoin_block
   {
@@ -458,15 +458,15 @@ namespace cryptonote
       VARINT_FIELD(major_version)
       if(major_version > BLOCK_MAJOR_VERSION_5) return false;
       VARINT_FIELD(minor_version)
-      /*if (BLOCK_MAJOR_VERSION_1 == major_version)
-      {*/
+      if (BLOCK_MAJOR_VERSION_1 == major_version)
+      {
         VARINT_FIELD(timestamp)
-      /*}*/
+      }
       FIELD(prev_id)
-      /*if (BLOCK_MAJOR_VERSION_1 == major_version)
-      {*/
+      if (BLOCK_MAJOR_VERSION_1 == major_version)
+      {
         FIELD(nonce)
-      /*}*/
+      }
     END_SERIALIZE()
   };
 
@@ -479,11 +479,11 @@ namespace cryptonote
 
     BEGIN_SERIALIZE_OBJECT()
       FIELDS(*static_cast<block_header *>(this))
-      /*if (BLOCK_MAJOR_VERSION_2 <= major_version)
-      {*/
+      if (BLOCK_MAJOR_VERSION_2 <= major_version)
+      {
         auto sbb = make_serializable_bytecoin_block(*this, false, false);
         FIELD_N("parent_block", sbb);
-      /*}*/
+      }
       FIELD(miner_tx)
       FIELD(tx_hashes)
     END_SERIALIZE()
