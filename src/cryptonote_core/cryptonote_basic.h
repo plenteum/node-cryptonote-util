@@ -355,7 +355,7 @@ namespace cryptonote
   /*                                                                      */
   /************************************************************************/
 
-  const uint8_t CURRENT_BYTECOIN_BLOCK_MAJOR_VERSION = 1;
+  const uint8_t CURRENT_BYTECOIN_BLOCK_MAJOR_VERSION = 5;
 
   struct bytecoin_block
   {
@@ -456,7 +456,7 @@ namespace cryptonote
 
     BEGIN_SERIALIZE()
       VARINT_FIELD(major_version)
-      if(major_version > BLOCK_MAJOR_VERSION_6) return false;
+      if(major_version > BLOCK_MAJOR_VERSION_5) return false;
       VARINT_FIELD(minor_version)
       if (BLOCK_MAJOR_VERSION_1 == major_version)
       {
